@@ -1,0 +1,42 @@
+/* SETTINGS  */
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+}
+
+/* UTILITY */
+.col-9{
+    width: calc((100% / 12) * 9);
+}
+
+.col-3{
+    width: calc(100% / 4);
+}
+
+.row{
+    display: flex;
+}
+
+.column{
+    flex-direction: column;
+}
+
+/* HEADER */
+.page-header{
+    background-color: #019687;
+    height: 160px;
+}
+
+/* MAIN */
+
+.page-main{
+    background-color: #DBDAD5;
+    height: calc(100vh - 160px);
+}
+
+.container{
+    width: 1000px;
+    margin: 0 auto;
+}
