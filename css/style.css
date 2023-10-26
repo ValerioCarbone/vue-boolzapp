@@ -23,6 +23,7 @@ img {
 
 .row {
     display: flex;
+    height: 100%;
 }
 
 .column {
@@ -63,12 +64,19 @@ img {
 .page-main {
     background-color: #DBDAD5;
     height: calc(100vh - 160px);
+    position: relative;
 }
 
 .container {
     width: 1400px;
     margin: 0 auto;
+    height: 90vh;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
+
 
 /* SIDEBAR */
 
@@ -116,24 +124,59 @@ img {
     font-weight: 700;
 }
 
-.contacts-searchbar{
+.contacts-search-bar{
     padding: 6px ;
     height: 40px;
     position: relative;
 }
 
-.contacts-searchbar input{
+.contacts-search-bar input{
     background-color: #fff7f7;
     width: 100%;
     border: none;
-    vertical-align: middle;
+    height: 100%;
+    margin-left: 66px;
+}
+
+.contacts-search-bar .icon-grey{
+    position: absolute;
+    top: 50%;
+    left: 11%;
+    transform: translate(-50%, -50%);
+}
+
+.search-bar-container{
+    background-color: #fff7f7;
     height: 100%;
 }
 
-.contacts-searchbar .icon-grey{
-    position: absolute;
-    top: 50%;
-    left: 10%;
-    transform: translate(-50%, -50%);
+.contacts-card .card-text{
+    color: rgb(154, 149, 149);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.contacts-card{
+    height: 65px;
+    padding: 6px;
+}
+
+.contacts-card .card-name{
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.contacts-card .card-img{
+    border-radius: 999px;
+    margin: 0 12px;
+}
+
+.last-msg-time{
+    font-size: 8px;
+    font-weight: 700; 
+    color: grey;
+    align-self: flex-start;
+    margin-bottom: auto;
+    
 }
 
