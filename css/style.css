@@ -179,7 +179,7 @@ img {
 }
 
 .last-msg-time{
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 700; 
     color: grey;
     align-self: flex-start;
@@ -191,6 +191,8 @@ img {
 .chat-history{
     background-image: url(/img/mine.jpg);
     background-repeat: repeat;
+    padding: 30px 50px;
+    row-gap: 8px;
 }
 
 .message-input{
@@ -215,4 +217,32 @@ img {
     font-size: 22px;
     margin: 0 28px;
     color: rgb(88, 87, 87);
+}
+
+.message{
+padding: 16px;
+border-radius: 14px;
+font-weight: 600;
+font-size: 14px;
+position: relative;
+max-width: 70%;
+white-space: normal;
+}
+
+.message-sent{
+background-color: #D7F9BC;
+align-self: flex-end;
+}
+
+.message-received{
+background-color: white;
+align-self: flex-start;
+}
+
+.message-data{
+    color: rgb(188, 182, 182);
+    position: absolute;
+    right: 6px;
+    bottom: 6px;
+    font-size: 8px;
 }
