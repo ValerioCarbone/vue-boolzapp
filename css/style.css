@@ -23,6 +23,14 @@
     flex-direction: column;
 }
 
+.justify-center{
+    justify-content: center;
+}
+
+.align-items-center{
+    align-items: center;
+}
+
 /* HEADER */
 .page-header{
     background-color: #019687;
@@ -39,4 +47,15 @@
 .container{
     width: 1000px;
     margin: 0 auto;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    background-color: #EBE9EB;
+}
+
+.app-header{
+    height: 60px;
+
 }
