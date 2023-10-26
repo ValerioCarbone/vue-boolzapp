@@ -115,3 +115,25 @@ img {
     font-size: 12px;
     font-weight: 700;
 }
+
+.contacts-searchbar{
+    padding: 6px ;
+    height: 40px;
+    position: relative;
+}
+
+.contacts-searchbar input{
+    background-color: #fff7f7;
+    width: 100%;
+    border: none;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.contacts-searchbar .icon-grey{
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+}
+
