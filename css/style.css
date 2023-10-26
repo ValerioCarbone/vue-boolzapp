@@ -1,61 +1,97 @@
 /* SETTINGS  */
 
-*{
+* {
     padding: 0;
     margin: 0;
-    box-sizing: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+img {
+    display: block;
+    height: 100%;
 }
 
 /* UTILITY */
-.col-9{
+.col-9 {
     width: calc((100% / 12) * 9);
 }
 
-.col-3{
+.col-3 {
     width: calc(100% / 4);
 }
 
-.row{
+.row {
     display: flex;
 }
 
-.column{
+.column {
     flex-direction: column;
 }
 
-.justify-center{
+.justify-center {
     justify-content: center;
 }
 
-.align-items-center{
+.align-items-center {
     align-items: center;
 }
 
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.grow{
+    flex-grow: 1;
+}
+
+.no-shrink{
+    flex-shrink: 0;
+}
 /* HEADER */
-.page-header{
+.page-header {
     background-color: #019687;
     height: 160px;
 }
 
 /* MAIN */
 
-.page-main{
+.page-main {
     background-color: #DBDAD5;
     height: calc(100vh - 160px);
 }
 
-.container{
+.container {
     width: 1000px;
     margin: 0 auto;
 }
 
 /* SIDEBAR */
 
-.sidebar{
+.sidebar {
     background-color: #EBE9EB;
 }
 
-.app-header{
+.app-header {
     height: 60px;
+    padding: 0 12px;
+}
 
+.profile-img {
+    border-radius: 999px;
+    height: 75%;
+    margin-right: 12px;
+}
+
+.sidebar-name {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.icon{
+    color: grey;
 }
