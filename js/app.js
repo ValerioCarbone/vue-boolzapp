@@ -172,7 +172,7 @@ createApp({
             contactSearch: '',
             requestedContacts: [],
             enteredMessage: '',
-            dropDownDisplay: false
+            dropDownDisplay: ''
         }
 
     },
@@ -240,12 +240,17 @@ createApp({
         },
         deleteMessage(index) {
             this.contacts[this.chatIndex].messages[index].message = 'Questa messaggio è stato eliminato'
-            this.dropDown()
+            this.dropDownDisplay = ''
+            
         },
-        dropDown() {
-            this.dropDownDisplay = !this.dropDownDisplay
-        }
-
+        dropDown(index) {      
+            if(this.dropDownDisplay === index){
+                this.dropDownDisplay = ''
+            } else {
+                this.dropDownDisplay = index
+            }
+            
+        },
     },
     mounted() {
         this.filterStarter()

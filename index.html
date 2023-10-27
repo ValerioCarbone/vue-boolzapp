@@ -18,7 +18,7 @@
 
                 <!-- SIDEBAR -->
 
-                <div class="col-3 sidebar row column">
+                <div class="col-3 sidebar row column no-shrink">
 
                     <!-- SIDEBAR-HEADER -->
 
@@ -60,7 +60,7 @@
 
                     <div class="contacts grow">
 
-                        <div v-if="requestedContacts.length >= 0">
+                        <div v-if="requestedContacts.length > 0">
                             <div class="contacts-card row align-items-center"
                                 v-for="(contact, index) in requestedContacts" :key="index"
                                 :class="selectedContact(index)" @click="setMessagesIndex(index)">
@@ -74,9 +74,9 @@
 
                             </div>
                         </div>
-                        <!-- <div v-else>
+                        <div v-else>
                             <p class="card-text contacts-card">Nessun contatto trovato.</p>
-                        </div> -->
+                        </div>
 
 
                     </div>
@@ -84,7 +84,7 @@
 
                 <!-- CHAT -->
 
-                <div class="col-9 chat row column">
+                <div class="col-9 chat row column grow">
                     <div class="app-header row align-items-center no-shrink">
 
                         <img class="profile-img" src="./img/avatar_1.jpg" alt="">
@@ -110,8 +110,8 @@
                         <div class="message" :class="setMessagesStatus(messagesList)"
                             v-for="(messagesList,index) in contacts[chatIndex].messages" :key="index">
                             {{ messagesList.message }}
-                            <i class="fa-solid fa-chevron-down dropdown-icon" @click="dropDown()"></i>
-                            <ul class="dropdown-message" :class="dropDownDisplay === true ?'displayed' : ''">
+                            <i class="fa-solid fa-chevron-down dropdown-icon" @click="dropDown(index)"></i>
+                            <ul class="dropdown-message" :class="dropDownDisplay === index ? 'displayed' : ''">
                                 <li>Message info</li>
                                 <li @click="deleteMessage(index)">Delete message</li>
                             </ul>

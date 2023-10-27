@@ -78,7 +78,6 @@ ol {
 }
 
 .container {
-    width: 1250px;
     margin: 0 auto;
     position: absolute;
     top: 40%;
@@ -89,7 +88,7 @@ ol {
 .row-main {
     display: flex;
     height: 90vh;
-    ;
+    width: 1250px;
 }
 
 
