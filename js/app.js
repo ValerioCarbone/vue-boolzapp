@@ -239,7 +239,7 @@ createApp({
             setTimeout(this.autoAnswer, 1000)
         },
         deleteMessage(index) {
-            this.contacts[this.chatIndex].messages[index].message = 'Questa messaggio è stato eliminato'
+            this.contacts[this.chatIndex].messages[index].message = 'Questo messaggio è stato eliminato'
             this.dropDownDisplay = ''
             
         },
