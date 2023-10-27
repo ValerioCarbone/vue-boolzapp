@@ -62,7 +62,11 @@ img {
 /* MAIN */
 
 .page-main {
-    background-color: #DBDAD5;
+    background: rgb(221, 219, 210);
+    background: -moz-linear-gradient(180deg, rgba(221, 219, 210, 1) 25%, rgba(211, 218, 222, 1) 75%);
+    background: -webkit-linear-gradient(180deg, rgba(221, 219, 210, 1) 25%, rgba(211, 218, 222, 1) 75%);
+    background: linear-gradient(180deg, rgba(221, 219, 210, 1) 25%, rgba(211, 218, 222, 1) 75%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#dddbd2", endColorstr="#d3dade", GradientType=1);
     height: calc(100vh - 160px);
     position: relative;
 }
@@ -195,10 +199,15 @@ img {
     border: 1px solid #dcdada;
 }
 
+.selected-contact {
+    background-color: #E9EAEB;
+    border: 1px solid #dcdada;
+}
+
 /* CHAT */
 
 .chat-history {
-    background-image:url(/img/mine.jpg);
+    background-image: url(/img/mine.jpg);
     background-repeat: repeat;
     padding: 30px 50px;
     row-gap: 8px;
