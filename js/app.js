@@ -216,19 +216,31 @@ createApp({
         },
         filterStarter() {
             if (this.requestedContacts.length === 0 & this.contactSearch.length === 0) {
-                   this.requestedContacts = this.contacts
+                this.requestedContacts = this.contacts
             }
         },
-        pushMessage(){
+        autoAnswer() {
+            this.contacts[this.chatIndex].messages.push(
+                {
+                    date: '10/01/2020 16:15:22',
+                    message: 'ok',
+                    status: 'received'
+                }
+            )
+        },
+        pushMessage() {
             this.contacts[this.chatIndex].messages.push(
                 {
                     date: '10/01/2020 16:15:22',
                     message: this.enteredMessage,
-                    status: 'send'
+                    status: 'sent'
                 }
             )
-            
+
             this.enteredMessage = ''
+
+            setTimeout(this.autoAnswer, 1000)
+            
         }
 
     },

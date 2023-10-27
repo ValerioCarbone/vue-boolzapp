@@ -104,7 +104,7 @@
 
                     <div class="chat-history grow row column">
                        
-                        <p class="message message-sent" :class="setMessagesStatus(messagesList)" 
+                        <p class="message" :class="setMessagesStatus(messagesList)" 
                         v-for="(messagesList,index) in contacts[chatIndex].messages">
                         {{ messagesList.message }}
                             <span class="message-data">15:30</span>

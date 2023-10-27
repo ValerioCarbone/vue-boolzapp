@@ -220,6 +220,7 @@ img {
     background-repeat: repeat;
     padding: 30px 50px;
     row-gap: 8px;
+    overflow: auto;
 }
 
 .message-input {
