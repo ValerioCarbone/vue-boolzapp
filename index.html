@@ -12,7 +12,7 @@
 <body>
     <header class="page-header"></header>
 
-    <main class="page-main">
+    <main class="page-main" id="app">
         <div class="container">
             <div class="row-main">
 
@@ -59,76 +59,17 @@
 
                     <div class="contacts grow">
 
-                        <div class="contacts-card row align-items-center">
+                        <div class="contacts-card row align-items-center" v-for="(contact, index) in contacts" :key="index">
 
-                            <img class="card-img" src="./img/avatar_1.jpg" alt="">
-                            <div>
-                                <p class="card-name">Michele</p>
+                            <img class="card-img" :src="contact.avatar" :alt="contact.name">
+                            <div @click="setMessagesIndex(index)">
+                                <p class="card-name">{{ contact.name }}</p>
                                 <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
                             </div>
-                            <span class="last-msg-time">12:00</span>
+                            <span class="last-msg-time"></span>
 
                         </div>
-                        <div class="contacts-card row align-items-center">
 
-                            <img class="card-img" src="./img/avatar_1.jpg" alt="">
-                            <div>
-                                <p class="card-name">Michele</p>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-                            </div>
-                            <span class="last-msg-time">12:00</span>
-
-                        </div>
-                        <div class="contacts-card row align-items-center">
-
-                            <img class="card-img" src="./img/avatar_1.jpg" alt="">
-                            <div>
-                                <p class="card-name">Michele</p>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-                            </div>
-                            <span class="last-msg-time">12:00</span>
-
-                        </div>
-                        <div class="contacts-card row align-items-center">
-
-                            <img class="card-img" src="./img/avatar_1.jpg" alt="">
-                            <div>
-                                <p class="card-name">Michele</p>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-                            </div>
-                            <span class="last-msg-time">12:00</span>
-
-                        </div>
-                        <div class="contacts-card row align-items-center">
-
-                            <img class="card-img" src="./img/avatar_1.jpg" alt="">
-                            <div>
-                                <p class="card-name">Michele</p>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-                            </div>
-                            <span class="last-msg-time">12:00</span>
-
-                        </div>
-                        <div class="contacts-card row align-items-center">
-
-                            <img class="card-img" src="./img/avatar_1.jpg" alt="">
-                            <div>
-                                <p class="card-name">Michele</p>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-                            </div>
-                            <span class="last-msg-time">12:00</span>
-
-                        </div>
-                        <div class="contacts-card row align-items-center">
-
-                            <img class="card-img" src="./img/avatar_1.jpg" alt="">
-                            <div>
-                                <p class="card-name">Michele</p>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-                            </div>
-                            <span class="last-msg-time">12:00</span>
-
-                        </div>
 
                     </div>
                 </div>
@@ -157,21 +98,15 @@
                     </div>
 
                     <div class="chat-history grow row column">
-                        <p class="message message-sent">Ciao
+                       
+                        <p class="message message-sent" 
+                        :class="setMessagesStatus(messagesList)" 
+                        v-for="(messagesList,index) in contacts[chatIndex].messages">
+                        {{ messagesList.message }}
                             <span class="message-data">15:30</span>
                         </p>
-                        <p class="message message-received">Ciao! Come stai?
-                            <span class="message-data">15:30</span>
-                        </p>
-                        <p class="message message-sent">Tutto bene. Stasera esci?
-                            <span class="message-data">15:30</span>
-                        </p>
-                        <p class="message message-received">Certo! Ci vediamo?
-                            <span class="message-data">15:30</span>
-                        </p>
-                        <p class="message message-sent">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat necessitatibus distinctio facere voluptate quas praesentium voluptatum cum fugit eligendi amet.
-                            <span class="message-data">15:30</span>
-                        </p>
+                        
+
                     </div>
 
                     <div class="message-input no-shrink row align-items-center">
@@ -187,6 +122,7 @@
             </div>
         </div>
     </main>
+
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./js/app.js"></script>
 </body>
