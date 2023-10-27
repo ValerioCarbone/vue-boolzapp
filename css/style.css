@@ -196,7 +196,7 @@ img {
     font-weight: 700;
     color: grey;
     align-self: flex-start;
-    margin-bottom: auto;
+    margin-left: auto;
 }
 
 .contacts-card:hover {

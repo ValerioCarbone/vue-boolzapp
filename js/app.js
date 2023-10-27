@@ -170,8 +170,7 @@ createApp({
             ],
             chatIndex: 0,
             contactSearch: '',
-            allContactsName: [],
-            requestedContacts:[]
+            requestedContacts: []
         }
 
     },
@@ -185,25 +184,43 @@ createApp({
             }
             else return 'message-received'
         },
-        contactsArray() {
+        // contactsArray() {
 
-            for (let i = 0; i < this.contacts.length; i++){
-                this.allContactsName.push(this.contacts[i].name)
-            }
+        //     for (let i = 0; i < this.contacts.length; i++){
+        //         this.allContactsName.push(this.contacts[i].name)
+        //     }
 
-            console.log(this.allContactsName)
-            return this.allContactsName
-        },
+        //     console.log(this.allContactsName)
+        //     return this.allContactsName
+        // },
         selectedContact(index){
             if (this.chatIndex === index){
                 return 'selected-contact'
             }
             else return ''
+        },
+        filterContacts(){
+            this.requestedContacts = []
+            for (i = 0; i < this.contacts.length; i++){
+                
+                if (this.contacts[i].name.toLowerCase().includes(this.contactSearch.toLowerCase())){
+                   this.requestedContacts.push(this.contacts[i])
+                   console.log(this.contacts[i].name)
+                }
+            }
+            if (this.requestedContacts.length === 0){
+                this.requestedContacts = this.contacts
+            }
+            else {
+                return this.requestedContacts
+            }
+           
+
+            
         }
+        
     },
     mounted() {
-        this.contactsArray()
-
-
+        this.filterContacts()
     }
 }).mount('#app')
