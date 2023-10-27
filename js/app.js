@@ -166,7 +166,7 @@ createApp({
                         }
                     ],
                 },
-                
+
             ],
             chatIndex: 0,
             contactSearch: '',
@@ -193,32 +193,37 @@ createApp({
         //     console.log(this.allContactsName)
         //     return this.allContactsName
         // },
-        selectedContact(index){
-            if (this.chatIndex === index){
+        selectedContact(index) {
+            if (this.chatIndex === index) {
                 return 'selected-contact'
             }
             else return ''
         },
-        filterContacts(){
+        filterContacts() {
             this.requestedContacts = []
-            for (i = 0; i < this.contacts.length; i++){
-                
-                if (this.contacts[i].name.toLowerCase().includes(this.contactSearch.toLowerCase())){
-                   this.requestedContacts.push(this.contacts[i])
-                   console.log(this.contacts[i].name)
+            for (i = 0; i < this.contacts.length; i++) {
+
+                if (this.contacts[i].name.toLowerCase().includes(this.contactSearch.toLowerCase())) {
+                    this.requestedContacts.push(this.contacts[i])
+                    console.log(this.contacts[i].name)
                 }
             }
-            if (this.requestedContacts.length === 0){
+
+            if (this.requestedContacts.length === 0 & this.contactSearch.length === 0) {
                 this.requestedContacts = this.contacts
             }
+            if (this.contactSearch.length > 0 & this.requestedContacts.length === 0) {
+                this.requestedContacts = ['']
+            }
+
             else {
                 return this.requestedContacts
             }
-           
 
-            
+
+
         }
-        
+
     },
     mounted() {
         this.filterContacts()
