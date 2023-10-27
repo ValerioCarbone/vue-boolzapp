@@ -50,7 +50,8 @@
 
                     <div class="contacts-search-bar row align-items-center">
 
-                        <input type="text" placeholder="Cerca o inizia una nuova chat" @keyup="filterContacts()" v-model="contactSearch">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" @keyup="filterContacts()"
+                            v-model="contactSearch">
                         <i class="fa-solid fa-magnifying-glass icon-grey"></i>
 
                     </div>
@@ -60,15 +61,17 @@
                     <div class="contacts grow">
 
                         <div v-if="requestedContacts.length >= 0">
-                            <div class="contacts-card row align-items-center" v-for="(contact, index) in requestedContacts" :key="index" :class="selectedContact(index)" @click="setMessagesIndex(index)">
+                            <div class="contacts-card row align-items-center"
+                                v-for="(contact, index) in requestedContacts" :key="index"
+                                :class="selectedContact(index)" @click="setMessagesIndex(index)">
 
                                 <img class="card-img" :src="contact.avatar" :alt="contact.name">
-                                <div >
+                                <div>
                                     <p class="card-name">{{ contact.name }}</p>
                                     <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
                                 </div>
                                 <span class="last-msg-time">22:00</span>
-    
+
                             </div>
                         </div>
                         <!-- <div v-else>
@@ -103,13 +106,19 @@
                     </div>
 
                     <div class="chat-history grow row column">
-                       
-                        <p class="message" :class="setMessagesStatus(messagesList)" 
-                        v-for="(messagesList,index) in contacts[chatIndex].messages">
-                        {{ messagesList.message }}
-                            <span class="message-data">15:30</span>
-                        </p>
-                        
+
+                        <div class="message" :class="setMessagesStatus(messagesList)"
+                            v-for="(messagesList,index) in contacts[chatIndex].messages" :key="index">
+                            {{ messagesList.message }}
+                            <i class="fa-solid fa-chevron-down dropdown-icon" @click="dropDown()"></i>
+                            <ul class="dropdown-message" :class="dropDownDisplay === true ?'displayed' : ''">
+                                <li>Message info</li>
+                                <li @click="deleteMessage(index)">Delete message</li>
+                            </ul>
+                            <span class="message-time">15:30</span>
+
+                        </div>
+
                     </div>
 
                     <!-- MESSAGE-INPUT -->
@@ -118,7 +127,8 @@
                         <span>
                             <i class="fa-regular fa-face-smile"></i>
                         </span>
-                        <input type="text" placeholder="Scrivi messaggio" v-model="enteredMessage" @keyup.enter="pushMessage()">
+                        <input type="text" placeholder="Scrivi messaggio" v-model="enteredMessage"
+                            @keyup.enter="pushMessage()">
                         <span>
                             <i class="fa-solid fa-microphone"></i>
                         </span>

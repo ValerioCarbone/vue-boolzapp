@@ -172,6 +172,7 @@ createApp({
             contactSearch: '',
             requestedContacts: [],
             enteredMessage: '',
+            dropDownDisplay: false
         }
 
     },
@@ -209,10 +210,6 @@ createApp({
             else {
                 return this.requestedContacts
             }
-
-
-
-
         },
         filterStarter() {
             if (this.requestedContacts.length === 0 & this.contactSearch.length === 0) {
@@ -240,7 +237,13 @@ createApp({
             this.enteredMessage = ''
 
             setTimeout(this.autoAnswer, 1000)
-            
+        },
+        deleteMessage(index) {
+            this.contacts[this.chatIndex].messages[index].message = 'Questa messaggio è stato eliminato'
+            this.dropDown()
+        },
+        dropDown() {
+            this.dropDownDisplay = !this.dropDownDisplay
         }
 
     },
