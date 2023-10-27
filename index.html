@@ -59,16 +59,21 @@
 
                     <div class="contacts grow">
 
-                        <div class="contacts-card row align-items-center" v-for="(contact, index) in requestedContacts" :key="index" :class="selectedContact(index)" @click="setMessagesIndex(index)">
+                        <div v-if="requestedContacts.length >= 0">
+                            <div class="contacts-card row align-items-center" v-for="(contact, index) in requestedContacts" :key="index" :class="selectedContact(index)" @click="setMessagesIndex(index)">
 
-                            <img class="card-img" :src="contact.avatar" :alt="contact.name">
-                            <div >
-                                <p class="card-name">{{ contact.name }}</p>
-                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                                <img class="card-img" :src="contact.avatar" :alt="contact.name">
+                                <div >
+                                    <p class="card-name">{{ contact.name }}</p>
+                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                                </div>
+                                <span class="last-msg-time">22:00</span>
+    
                             </div>
-                            <span class="last-msg-time">22:00</span>
-
                         </div>
+                        <!-- <div v-else>
+                            <p class="card-text contacts-card">Nessun contatto trovato.</p>
+                        </div> -->
 
 
                     </div>
@@ -105,14 +110,15 @@
                             <span class="message-data">15:30</span>
                         </p>
                         
-
                     </div>
+
+                    <!-- MESSAGE-INPUT -->
 
                     <div class="message-input no-shrink row align-items-center">
                         <span>
                             <i class="fa-regular fa-face-smile"></i>
                         </span>
-                        <input type="text" placeholder="Scrivi messaggio">
+                        <input type="text" placeholder="Scrivi messaggio" v-model="enteredMessage" @keyup.enter="pushMessage()">
                         <span>
                             <i class="fa-solid fa-microphone"></i>
                         </span>

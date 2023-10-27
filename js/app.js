@@ -170,7 +170,8 @@ createApp({
             ],
             chatIndex: 0,
             contactSearch: '',
-            requestedContacts: []
+            requestedContacts: [],
+            enteredMessage: '',
         }
 
     },
@@ -184,17 +185,8 @@ createApp({
             }
             else return 'message-received'
         },
-        // contactsArray() {
-
-        //     for (let i = 0; i < this.contacts.length; i++){
-        //         this.allContactsName.push(this.contacts[i].name)
-        //     }
-
-        //     console.log(this.allContactsName)
-        //     return this.allContactsName
-        // },
         selectedContact(index) {
-            if (this.chatIndex === index) {
+            if (this.chatIndex === index & this.requestedContacts.length > 0) {
                 return 'selected-contact'
             }
             else return ''
@@ -208,10 +200,8 @@ createApp({
                     console.log(this.contacts[i].name)
                 }
             }
+            console.log(this.requestedContacts)
 
-            if (this.requestedContacts.length === 0 & this.contactSearch.length === 0) {
-                this.requestedContacts = this.contacts
-            }
             if (this.contactSearch.length > 0 & this.requestedContacts.length === 0) {
                 this.requestedContacts = ['']
             }
@@ -222,10 +212,27 @@ createApp({
 
 
 
+
+        },
+        filterStarter() {
+            if (this.requestedContacts.length === 0 & this.contactSearch.length === 0) {
+                   this.requestedContacts = this.contacts
+            }
+        },
+        pushMessage(){
+            this.contacts[this.chatIndex].messages.push(
+                {
+                    date: '10/01/2020 16:15:22',
+                    message: this.enteredMessage,
+                    status: 'send'
+                }
+            )
+            
+            this.enteredMessage = ''
         }
 
     },
     mounted() {
-        this.filterContacts()
+        this.filterStarter()
     }
 }).mount('#app')
