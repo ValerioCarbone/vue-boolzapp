@@ -165,7 +165,8 @@ createApp({
                             status: 'received'
                         }
                     ],
-                }
+                },
+                
             ],
             chatIndex: 0,
             contactSearch: '',

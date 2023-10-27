@@ -89,6 +89,10 @@ img {
 
 /* SIDEBAR */
 
+.sidebar{
+    overflow: hidden;
+}
+
 .app-header {
     height: 62px;
     padding: 0 12px;
@@ -133,6 +137,7 @@ img {
 
 .contacts {
     background-color: white;
+    overflow: auto;
 }
 
 .contacts-search-bar {
@@ -173,7 +178,7 @@ img {
     height: 65px;
     padding: 6px;
     background-color: white;
-    border: 1px solid white;
+    border: 1px solid rgb(243, 239, 239);
 }
 
 .contacts-card .card-name {
@@ -205,6 +210,10 @@ img {
 }
 
 /* CHAT */
+
+.chat{
+    overflow: hidden;
+}
 
 .chat-history {
     background-image: url(/img/mine.jpg);
