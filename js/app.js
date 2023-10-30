@@ -256,7 +256,7 @@ createApp({
             return `${hours}:${minutes}`
         }
     },
-    mounted() {
+    created() {
         this.filterStarter()
     }
 }).mount('#app')
