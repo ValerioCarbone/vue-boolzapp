@@ -223,34 +223,34 @@ createApp({
                     message: this.enteredMessage,
                     status: 'sent'
                 }
-            )
+            );
 
-            this.enteredMessage = ''
+            this.enteredMessage = '';
 
             setTimeout(this.autoAnswer, 1000)
         },
         deleteMessage(index) {
             this.contacts[this.chatIndex].messages[index].message = 'Questo messaggio è stato eliminato';
             this.dropDownDisplay = ''
-            
+
         },
-        dropDown(index) {      
-            if(this.dropDownDisplay === index){
+        dropDown(index) {
+            if (this.dropDownDisplay === index) {
                 this.dropDownDisplay = ''
             } else {
                 this.dropDownDisplay = index
             }
-            
+
         },
-        formattingTimeLastMsg(index){
+        formattingTimeLastMsg(index) {
             const [dateValues, timeValues] = this.requestedContacts[index].messages[this.
-            requestedContacts[index].messages.length - 1].date.split(' ');
-            
+                requestedContacts[index].messages.length - 1].date.split(' ');
+
             const [hours, minutes, seconds] = timeValues.split(':');
-            
+
             return `${hours}:${minutes}`
         },
-        formattingTimeChat(index){
+        formattingTimeChat(index) {
             const [dateValues, timeValues] = this.contacts[this.chatIndex].messages[index].date.split(' ');
             const [hours, minutes, seconds] = timeValues.split(':');
             return `${hours}:${minutes}`
