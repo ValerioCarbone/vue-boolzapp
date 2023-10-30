@@ -75,7 +75,7 @@
                                     <p class="card-name">{{ contact.name }}</p>
                                     <p class="card-text">{{ contact.messages[contact.messages.length - 1].message }}</p>
                                 </div>
-                                <span class="last-msg-time">22:00</span>
+                                <span class="last-msg-time">{{ formattingTimeLastMsg(index) }}</span>
 
                             </div>
                         </div>
@@ -117,7 +117,7 @@
                                 <li>Message info</li>
                                 <li @click="deleteMessage(index)">Delete message</li>
                             </ul>
-                            <span class="message-time">22:30</span>
+                            <span class="message-time">{{ formattingTimeChat(index) }}</span>
 
                         </div>
 

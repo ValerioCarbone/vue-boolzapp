@@ -230,7 +230,7 @@ createApp({
             setTimeout(this.autoAnswer, 1000)
         },
         deleteMessage(index) {
-            this.contacts[this.chatIndex].messages[index].message = 'Questo messaggio è stato eliminato'
+            this.contacts[this.chatIndex].messages[index].message = 'Questo messaggio è stato eliminato';
             this.dropDownDisplay = ''
             
         },
@@ -242,10 +242,19 @@ createApp({
             }
             
         },
-        // formattingDate(index){
-        //     const dt = DateTime.local(this.contact.messages[index].date)
-        //     console.log(dt)
-        // }
+        formattingTimeLastMsg(index){
+            const [dateValues, timeValues] = this.requestedContacts[index].messages[this.
+            requestedContacts[index].messages.length - 1].date.split(' ');
+            
+            const [hours, minutes, seconds] = timeValues.split(':');
+            
+            return `${hours}:${minutes}`
+        },
+        formattingTimeChat(index){
+            const [dateValues, timeValues] = this.contacts[this.chatIndex].messages[index].date.split(' ');
+            const [hours, minutes, seconds] = timeValues.split(':');
+            return `${hours}:${minutes}`
+        }
     },
     mounted() {
         this.filterStarter()
