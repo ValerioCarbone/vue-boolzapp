@@ -187,7 +187,7 @@ createApp({
             else return 'message-received'
         },
         selectedContact(index) {
-            if (this.chatIndex === index & this.requestedContacts.length > 0) {
+            if (this.chatIndex === index & this.requestedContacts.length >= 1) {
                 return 'selected-contact'
             }
             else return ''
@@ -198,18 +198,9 @@ createApp({
 
                 if (this.contacts[i].name.toLowerCase().includes(this.contactSearch.toLowerCase())) {
                     this.requestedContacts.push(this.contacts[i])
-                    console.log(this.contacts[i].name)
                 }
             }
-            console.log(this.requestedContacts)
 
-            if (this.contactSearch.length > 0 & this.requestedContacts.length === 0) {
-                this.requestedContacts = ['']
-            }
-
-            else {
-                return this.requestedContacts
-            }
         },
         filterStarter() {
             if (this.requestedContacts.length === 0 & this.contactSearch.length === 0) {

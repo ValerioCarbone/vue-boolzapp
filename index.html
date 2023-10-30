@@ -60,7 +60,11 @@
 
                     <div class="contacts grow">
 
-                        <div v-if="requestedContacts.length > 0">
+                        <div v-if="requestedContacts.length < 1 & contactSearch.length > 1">
+                            <p class="card-text contacts-card">Nessun contatto trovato.</p>
+                        </div>
+
+                        <div v-else>
                             <div class="contacts-card row align-items-center"
                                 v-for="(contact, index) in requestedContacts" :key="index"
                                 :class="selectedContact(index)" @click="setMessagesIndex(index)">
@@ -73,9 +77,6 @@
                                 <span class="last-msg-time">22:00</span>
 
                             </div>
-                        </div>
-                        <div v-else>
-                            <p class="card-text contacts-card">Nessun contatto trovato.</p>
                         </div>
 
 
