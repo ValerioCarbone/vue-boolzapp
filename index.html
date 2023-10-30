@@ -7,6 +7,7 @@
     <title>Boolzapp</title>
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://kit.fontawesome.com/d590f78bae.js" crossorigin="anonymous"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/luxon@3.4.3/build/global/luxon.min.js "></script>
 </head>
 
 <body>
@@ -72,7 +73,7 @@
                                 <img class="card-img" :src="contact.avatar" :alt="contact.name">
                                 <div>
                                     <p class="card-name">{{ contact.name }}</p>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                                    <p class="card-text">{{ contact.messages[contact.messages.length - 1].message }}</p>
                                 </div>
                                 <span class="last-msg-time">22:00</span>
 
@@ -116,7 +117,7 @@
                                 <li>Message info</li>
                                 <li @click="deleteMessage(index)">Delete message</li>
                             </ul>
-                            <span class="message-time">15:30</span>
+                            <span class="message-time">22:30</span>
 
                         </div>
 

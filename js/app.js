@@ -242,6 +242,10 @@ createApp({
             }
             
         },
+        // formattingDate(index){
+        //     const dt = DateTime.local(this.contact.messages[index].date)
+        //     console.log(dt)
+        // }
     },
     mounted() {
         this.filterStarter()
