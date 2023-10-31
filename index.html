@@ -61,14 +61,10 @@
 
                     <div class="contacts grow">
 
-                        <div v-if="requestedContacts.length < 1 & contactSearch.length > 1">
-                            <p class="card-text contacts-card">Nessun contatto trovato</p>
-                        </div>
-
-                        <div v-else>
+                        <div>
                             <div class="contacts-card row align-items-center"
-                                v-for="(contact, index) in requestedContacts" :key="index"
-                                :class="selectedContact(index)" @click="setMessagesIndex(index)">
+                                v-for="(contact, index) in contacts" :key="index"
+                                :class="selectedContact(index)" @click="setMessagesIndex(index)" v-show="contact.name.toLowerCase().includes(contactSearch.toLowerCase())" >
 
                                 <img class="card-img" :src="contact.avatar" :alt="contact.name">
                                 <div>
@@ -79,7 +75,10 @@
 
                             </div>
                         </div>
-
+                      
+                        <div v-show="requestedContacts.length === 0">
+                            <p class="card-text no-contacts-found">Nessun contatto trovato</p>
+                        </div>
 
                     </div>
                 </div>

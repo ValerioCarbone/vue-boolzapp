@@ -214,6 +214,11 @@ ol {
     border: 1px solid #dcdada;
 }
 
+.no-contacts-found{
+    text-align: center;
+    padding: 8px 0;
+}
+
 /* CHAT */
 
 .chat {

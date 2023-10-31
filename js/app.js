@@ -170,15 +170,16 @@ createApp({
             ],
             chatIndex: 0,
             contactSearch: '',
-            requestedContacts: [],
             enteredMessage: '',
-            dropDownDisplay: ''
+            dropDownDisplay: '',
+            requestedContacts: []
         }
 
     },
     methods: {
         setMessagesIndex(index) {
             this.chatIndex = index
+
         },
         setMessagesStatus(message) {
             if (message.status === 'sent') {
@@ -187,7 +188,7 @@ createApp({
             else return 'message-received'
         },
         selectedContact(index) {
-            if (this.chatIndex === index & this.requestedContacts.length >= 1) {
+            if (this.chatIndex === index) {
                 return 'selected-contact'
             }
             else return ''
@@ -200,6 +201,7 @@ createApp({
                     this.requestedContacts.push(this.contacts[i])
                 }
             }
+            console.log(this.requestedContacts)
 
         },
         filterStarter() {
@@ -243,8 +245,7 @@ createApp({
 
         },
         formattingTimeLastMsg(index) {
-            const [dateValues, timeValues] = this.requestedContacts[index].messages[this.
-                requestedContacts[index].messages.length - 1].date.split(' ');
+            const [dateValues, timeValues] = this.contacts[index].messages[this.contacts[index].messages.length - 1].date.split(' ');
 
             const [hours, minutes, seconds] = timeValues.split(':');
 
@@ -254,9 +255,10 @@ createApp({
             const [dateValues, timeValues] = this.contacts[this.chatIndex].messages[index].date.split(' ');
             const [hours, minutes, seconds] = timeValues.split(':');
             return `${hours}:${minutes}`
-        }
+        },
     },
-    created() {
+    mounted() {
         this.filterStarter()
     }
+
 }).mount('#app')
