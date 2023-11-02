@@ -52,7 +52,7 @@
                     <div class="contacts-search-bar row align-items-center">
 
                         <input type="text" placeholder="Cerca o inizia una nuova chat" @keyup="filterContacts()"
-                            v-model="contactSearch">
+                            v-model.trim="contactSearch">
                         <i class="fa-solid fa-magnifying-glass icon-grey"></i>
 
                     </div>
@@ -128,7 +128,7 @@
                         <span>
                             <i class="fa-regular fa-face-smile"></i>
                         </span>
-                        <input type="text" placeholder="Scrivi messaggio" v-model="enteredMessage"
+                        <input type="text" placeholder="Scrivi messaggio" v-model.trim="enteredMessage"
                             @keyup.enter="pushMessage()">
                         <span>
                             <i class="fa-solid fa-microphone"></i>
