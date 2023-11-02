@@ -201,7 +201,6 @@ createApp({
                     this.requestedContacts.push(this.contacts[i])
                 }
             }
-            console.log(this.requestedContacts)
 
         },
         filterStarter() {

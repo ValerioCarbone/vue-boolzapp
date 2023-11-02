@@ -88,9 +88,9 @@
                 <div class="col-9 chat row column grow">
                     <div class="app-header row align-items-center no-shrink">
 
-                        <img class="profile-img" src="./img/avatar_1.jpg" alt="">
+                        <img class="profile-img" :src="contacts[chatIndex].avatar" alt="">
                         <div class="grow">
-                            <p class="sidebar-text">Pippo</p>
+                            <p class="sidebar-text">{{contacts[chatIndex].name}}</p>
                             <p class="sidebar-smaller-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                             </p>
                         </div>
